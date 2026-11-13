@@ -58,13 +58,18 @@
   conda create -n embodied python=3.8
   conda activate embodied
   
-  # 3. 安装依赖并运行基础机械臂抓取 Demo
-  pip install mujoco
+  # 3. 安装基础机械臂抓取 Demo 的依赖
+  python -m pip install mujoco
   # 可选：更平滑的 jerk 限制轨迹规划
-  pip install ruckig
-  python examples/01_hello_every_embodied_mujoco.py
+  python -m pip install ruckig
   ```
-  详细说明请见：`examples/README.md`
+
+  在同一环境中，按系统选择图形启动命令：
+
+  - macOS：`mjpython examples/01_hello_every_embodied_mujoco.py`
+  - Linux / Windows：`python examples/01_hello_every_embodied_mujoco.py`
+
+  详细说明请见：[示例运行指南](examples/README.md#2-运行方式)。
 
 
 

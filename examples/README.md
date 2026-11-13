@@ -28,34 +28,36 @@
 
 ## 2. 运行方式
 
-在项目根目录执行：
+在项目根目录、激活的 Python 环境中安装依赖：
 
 ```bash
 # 必需依赖
-pip install mujoco
+python -m pip install mujoco
 
 # 可选（推荐）：更平滑、更工程化的轨迹规划
-pip install ruckig
+python -m pip install ruckig
+```
 
+**macOS 图形模式**：在安装了 MuJoCo 的同一个环境中使用 `mjpython`：
+
+```bash
+mjpython examples/01_hello_every_embodied_mujoco.py
+```
+
+如果使用项目根目录下的 `.venv`，不激活也可以直接运行 `./.venv/bin/mjpython examples/01_hello_every_embodied_mujoco.py`。本示例调用 MuJoCo 的 [`launch_passive`](https://mujoco.readthedocs.io/en/stable/python.html#passive-viewer)，在 macOS 上用普通 `python` 启动会退回无窗口模式。
+
+**Linux / Windows 图形模式**：
+
+```bash
 python examples/01_hello_every_embodied_mujoco.py
 ```
 
-如果图形界面无法启动（例如远程无显示环境），可以使用：
+窗口打开后，在**终端**输入 `1`–`4` 并回车触发动作，输入 `q` 退出。加速时在对应的启动命令后加 `--fast`；自动连播时加 `--autoplay --autoplay-rounds 3`（不会自动保存视频）。
+
+**无窗口模式**（例如远程无显示环境，macOS 也可用普通 `python`）：
 
 ```bash
 python examples/01_hello_every_embodied_mujoco.py --headless
-```
-
-加速执行（关闭实时 sleep）：
-
-```bash
-python examples/01_hello_every_embodied_mujoco.py --fast
-```
-
-自动连播（用于生成视频）：
-
-```bash
-python examples/01_hello_every_embodied_mujoco.py --autoplay --autoplay-rounds 3
 ```
 
 ## 3. 为什么先用 MuJoCo？
